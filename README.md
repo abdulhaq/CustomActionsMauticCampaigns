@@ -58,3 +58,20 @@ And when the action is triggered, it will show in your customer's profile activi
 
 ![App Screenshot](https://raw.githubusercontent.com/abdulhaq/CustomActionsMauticCampaigns/master/img/img-3.png)
 
+
+## Tech Stack
+
+**Server:** PHP Symphony
+
+
+## 🚀 About Me
+I'm a full stack developer with experties in Mautic, Laravel, WordPress, AWS, React
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://it.haq.life/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdulhaq0)
+
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/AbdulHaqLife)
+

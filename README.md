@@ -1,27 +1,60 @@
+
 # Add Custom Actions to Mautic Campaign Builder
+
 Recently while working for a client I developed a Mautic plugin to add custom action on Campagin builder.
 
+Your actions will show up in campagin bulder. You can also create new conditions or decisions which gives you complete control over your customer's journy.
 
+## Code explained
 
-<!--<strong style="display:none;">Features:</strong>
-<ul><li><strong>Camera button</strong>: tap to capture image. Hold to record video of max limit 10 seconds.</li>
-<li><strong>Flash control button</strong>.</li>
-<li><strong>Camera switch button:</strong> to switch between front and back cameras.</li>
-<li><strong>Stickers:</strong> you can add stickers to your photos and videos. Place stickers anywhere on camera preview and adjust their sizes accordingly.</li>
-<li><strong>Add Text:</strong> similar to stickers, you can also add text to images and videos and change its font colour.</li>
-<li><strong>Save media:</strong> you can also save images and videos to your device.</li>
-<li><strong>Upload:</strong> there is a button to upload images to web. However server side programming needs to be done.</li>
-</ul>-->
+#### How to add custom action to campaign
 
-<p>Your actions will show up in campagin bulder. You can also create new conditions or decisions which gives you complete control over your customer's journy.</p>
+```php
+public function onCampaignBuild(CampaignBuilderEvent $event)
+    {
+        $event->addAction(
+            'sos.campaign.mark_success',
+            [
+                'label'           => 'Mark as Success',
+                'eventName'       => CampaignStatsEvents::ON_CAMPAIGN_MARK_SUCCESS, 
+                'description'     => 'Mark campaign as success for this contact',
 
-![alt text](https://raw.githubusercontent.com/abdulhaq/CustomActionsMauticCampaigns/master/img/img-1.png)
-<br />
+            ]
+        );
+    }
+```
 
-![alt text](https://raw.githubusercontent.com/abdulhaq/CustomActionsMauticCampaigns/master/img/img-2.png)
-<br />
+#### Add buttons to drop down menu
 
-<p>And when the action is triggered, it will show in your customer's profile activity.</p>
+```php
+$buttons = [
+            [
+                'label'        => 'View Stats',
+                'icon'         => 'fa fa-line-chart',
+                'context'      => 'campaign',
+            ],
+        ];
 
-![alt text](https://raw.githubusercontent.com/abdulhaq/CustomActionsMauticCampaigns/master/img/img-3.png)
-<br />
+foreach ($buttons as $button) {
+    $this->addButtonGenerator(
+        $button['objectAction'], 
+        $button['label'], 
+        $button['icon'], 
+        $button['context']
+    );
+}
+```
+
+## Screenshots
+Your actions will show up in campagin bulder. You can also create new conditions or decisions which gives you complete control over your customer's journy.
+
+![App Screenshot](https://raw.githubusercontent.com/abdulhaq/CustomActionsMauticCampaigns/master/img/img-1.png)
+
+How the campagin tree may look like:
+
+![App Screenshot](https://raw.githubusercontent.com/abdulhaq/CustomActionsMauticCampaigns/master/img/img-2.png)
+
+And when the action is triggered, it will show in your customer's profile activity.
+
+![App Screenshot](https://raw.githubusercontent.com/abdulhaq/CustomActionsMauticCampaigns/master/img/img-3.png)
+
